@@ -31,7 +31,7 @@ A robust backend solution for managing vehicle rentals, users, and bookings.
 ### Prerequisites
 
 - Node.js (v18 or later)
-- pnpm (or your preferred package manager)
+- npm (or your preferred package manager)
 - A running PostgreSQL database instance
 
 ### Installation
@@ -44,7 +44,7 @@ A robust backend solution for managing vehicle rentals, users, and bookings.
 
 2.  **Install dependencies:**
     ```bash
-    pnpm install
+    npm install
     ```
 
 3.  **Set up environment variables:**
