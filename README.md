@@ -2,7 +2,7 @@
 
 A robust backend solution for managing vehicle rentals, users, and bookings.
 
-**Live URL:** [Your Live URL Here]
+**Live URL:** [(https://assignment-2-coral-mu.vercel.app)]
 
 ## Features
 
@@ -50,13 +50,9 @@ A robust backend solution for managing vehicle rentals, users, and bookings.
 3.  **Set up environment variables:**
     Create a `.env` file in the root directory and add the following variables. Replace the placeholder values with your actual database credentials.
     ```env
-    PORT=5000
-    DB_HOST=localhost
-    DB_PORT=5432
-    DB_USER=your_db_user
-    DB_PASSWORD=your_db_password
-    DB_NAME=your_db_name
-    JWT_SECRET=your_jwt_secret
+    PORT=5000   
+    CONNECTION_STRING=your postgres connection string
+    JWT_SECRET= your jwt secret
     ```
 
 ### Running the Application
@@ -64,7 +60,7 @@ A robust backend solution for managing vehicle rentals, users, and bookings.
 To run the application in development mode with live reloading:
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 The server will start on the port specified in your `.env` file (e.g., `http://localhost:5000`).
@@ -89,5 +85,5 @@ A brief overview of the available API endpoints.
 
 ## What You Need to Provide
 
--   **GitHub Repository Link:** [Your GitHub Repository Link Here]
--   **Live Deployment Link:** [Your Live Deployment Link Here]
+-   **GitHub Repository Link:** [(https://github.com/hasibul-hossain1/L2-Assignment-2)]
+-   **Live Deployment Link:** [(https://assignment-2-coral-mu.vercel.app)]
