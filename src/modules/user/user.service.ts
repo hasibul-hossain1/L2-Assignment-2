@@ -1,6 +1,4 @@
-import { config } from "../../config";
 import { pool } from "../../config/db";
-import jwt from 'jsonwebtoken'
 
 const getAllUsers = async () => {
   try {
@@ -17,7 +15,6 @@ const getAllUsers = async () => {
 
 const updateUser = async (id: string, payload: Record<string, any>) => {
   try {
-    
     const fields = Object.keys(payload);
     const values = Object.values(payload);
     const setClause = fields
@@ -35,7 +32,18 @@ const updateUser = async (id: string, payload: Record<string, any>) => {
   }
 };
 
+const deleteUser = async (id: string) => {
+  try {
+    const result = await pool.query(`DELETE FROM users WHERE id=$1`, [id]);
+    const data = result.rows;
+    return data[0];
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default {
   getAllUsers,
-  updateUser
+  updateUser,
+  deleteUser
 };

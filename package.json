@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node src/server.ts",
-    "dev2": "pnpm dlx tsx watch ./src/server.ts"
+    "dev": "pnpm dlx tsx watch ./src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +22,6 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "pg": "^8.16.3",
-    "ts-node": "^10.9.2"
+    "pg": "^8.16.3"
   }
 }

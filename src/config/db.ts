@@ -25,7 +25,8 @@ export const initDB = async () => {
         daily_rent_price NUMERIC(10,2) NOT NULL CHECK (daily_rent_price > 0),
         availability_status VARCHAR(50) NOT NULL DEFAULT 'available' CHECK (availability_status IN ('available', 'booked'))
             )`);
-    await pool.query(`
+
+  await pool.query(`
         CREATE TABLE IF NOT EXISTS bookings(
         id SERIAL PRIMARY KEY,
         customer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -35,5 +36,12 @@ export const initDB = async () => {
         total_price NUMERIC(10,2) NOT NULL CHECK (total_price > 0),
         status VARCHAR(50) NOT NULL DEFAULT 'active' CHECK (status IN ('active','cancelled','returned'))
         )
-        `)
+        `);
+
+  await pool.query(
+    `CREATE INDEX IF NOT EXISTS idx_bookings_customer_id ON bookings(customer_id);`
+  );
+  await pool.query(
+    `CREATE INDEX IF NOT EXISTS idx_bookings_vehicle_id ON bookings(vehicle_id);`
+  );
 };
