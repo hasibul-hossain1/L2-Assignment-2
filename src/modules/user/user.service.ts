@@ -1,4 +1,6 @@
+import { config } from "../../config";
 import { pool } from "../../config/db";
+import jwt from 'jsonwebtoken'
 
 const getAllUsers = async () => {
   try {
@@ -13,13 +15,27 @@ const getAllUsers = async () => {
   }
 };
 
-const 
-
-
-
+const updateUser = async (id: string, payload: Record<string, any>) => {
+  try {
+    
+    const fields = Object.keys(payload);
+    const values = Object.values(payload);
+    const setClause = fields
+      .map((field, index) => `${field}=$${index + 2}`)
+      .join(", ");
+    const query = ` UPDATE users SET ${setClause} WHERE ID=$1 RETURNING *`;
+    const result = await pool.query(`${query}`, [id, ...values]);
+    const data = result.rows;
+    if (data.length === 0) {
+      throw new Error("Update failed");
+    }
+    return result.rows[0];
+  } catch (error) {
+    throw error;
+  }
+};
 
 export default {
   getAllUsers,
+  updateUser
 };
-
-

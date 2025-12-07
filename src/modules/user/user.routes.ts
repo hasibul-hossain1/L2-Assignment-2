@@ -4,6 +4,8 @@ import auth from "../../middleware/auth";
 
 const router= Router()
 
-router.use('/',auth('admin'),userController.getAllUsers)
+router.get('/',auth('admin'),userController.getAllUsers)
+
+router.put('/:userId',auth('admin','customer'),userController.updateUser)
 
 export default router
